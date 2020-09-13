@@ -1,152 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Weather Dashboard</title>
-
-        <!--  Add a "favicon" image to the Browser title tab.  -->
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
-</head>
-
-<body class="flex-column min-100-vh">
-    <header class="hero">
-        <h1 class="app-title">Weather Dashboard</h1>
-    </header>
-
-
-    <main class="flex-row justify-space-between">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-3 city-input">
-                    <!-- Create the page area for the 'city search' and 'city history' -->
-                    <div class="card">
-                    <h5 class="card-header">City Search Here</h5>
-  
-                    <form id="city-form" class="card-body">
-                        <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
-                        <button type="submit" class="searchbtn">Search</button>
-                    </form>
-                </div>
-
-                    <!-- Setup the 'city history' area -->
-                    <div class="card">
-                        <h5 class="card-header">Past Search
-                            <button type="button" class="clearbtn btn-primary" id="clear-all">Clear</button>
-                        </h5>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <title>Weather Dashboard</title>
+    </head>
+    <body>
+        <!-- Header content -->
+        <header>
+            <h1 class="p-3 bg-dark text-white text-center mb-0">Weather Dashboard</h1>
+        </header>
+        <!-- Main content -->
+        <main class="row">
+            <!-- Card to search for and view previous cities -->
+            <section class="col-3 bg-light p-3 pl-4">
+                <!-- City search block -->
+                <form id="city-search" class="form-group">
+                    <label for="city" class="font-weight-bold">Search for a City:</label>
+                    <div class="form-inline">
+                        <input type="text" autofocus="true" name="city" id="city" class="form-control">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="oi oi-magnifying-glass"></span>
+                        </button>
                     </div>
-
-        <div id="previous-cities">
-            <!-- Space for up to 10 cities -->
-            <div class="row">
-                <p class="previous btn" id="p0"></p>
-            </div>
-            <div class="row">
-                <p class="previous btn" id="p1"></p>
-            </div>
-            <div class="row">
-                <p class="previous btn" id="p2"></p>
-            </div>
-            <div class="row">
-                <p class="previous btn" id="p3"></p>
-            </div>
-            <div class="row">
-                <p class="previous btn" id="p4"></p>
-            </div>
-            <div class="row">
-                <p class="previous btn" id="p5"></p>
-            </div>
-            <div class="row">
-                <p class="previous btn" id="p6"></p>
-            </div>
-            <div class="row">
-                <p class="previous btn" id="p7"></p>
-            </div>
-            <div class="row">
-                <p class="previous btn" id="p8"></p>
-            </div>
-            <div class="row">
-                <p class="previous btn" id="p9"></p>
-            </div>
-            </div>
-        </div>
-  
-  
-        <!-- Setup the area where we display the weather information for the current day. -->
-  
-        <div class="col-9 ">
-            <div class="row">
-            <!-- Put the city summary here-->
-            <h5 class="currentday">Current Weather</h5>
-            </div>
-
-            <div class=" row today local1">
-                <p class="local1" id="citytext"></p>
-            </div>
-
-            <div class="row today local2">
-                <p class="local2" id="citylocation"></p>
-            </div>
-
-            <div class="row today">
-                <p class="local3" id="temperature"></p>
-            </div>
-            
-            <div class="row today">
-                <p class="local3" id="humidity"></p>
-            </div>
-
-            <div class="row today">
-                <p class="local3" id="wind"></p>
-            </div>
-
-            <div class="row today">
-                <p class="local3" id="uv"></p>
-                <p class="local3 redwhite" id="uv-value"></p>
-            </div>
-
-            <!-- Setup the area for the next 5 days weather -->
-            <div class="row">
-            <!-- Area for the 5-day forecast here-->
-                <h5 class="forecast">5-Day Forecast:</h5>
-            </div>
-
-    <div class="row ">
-        <div class="container next5Days">
-            <div class="row day-panels">
-                <div class="col-md-2 mr-1 card daycard">
-                    <ul id="day1"></ul>
-                </div>
-                <div class="col-md-2 mr-1 card daycard">
-                    <ul id="day2"></ul>
-                </div>
-                <div class="col-md-2 mr-1 card daycard">
-                    <ul id="day3"></ul>
-                </div>
-                <div class="col-md-2 mr-1 card daycard">
-                    <ul id="day4"></ul>
-                    </div>
-                        <div class="col-md-2 mr-1 card daycard">
-                            <ul id="day5"></ul>
-                        </div>
+                </form>
+                <!-- City list -->
+                <ul class="list-group" id="city-list">
+                    <!-- List items added with JS -->
+                    <!-- <li class="list-group-item text-capitalize">Austin</li> -->
+                </ul>
+            </section>
+            <!-- Weather info section -->
+            <section class="col-9">
+                <!-- City preview - h2 and spans will be added using JS-->
+                <div id="city-preview" class="card m-3 p-3">
+                    <h2 class="card-title text-capitalize" id="current-city-header">
+                        <!-- Atlanta 
+                        (6/27/2020) 
+                        <img src="http://openweathermap.org/img/wn/03d.png" alt="scattered clouds"> -->
+                    </h2>
+                    <div class="card-body">
+                        <p>Temperature: <span id="temperature"></span> °F</p>
+                        <p>Humidity: <span id="humidity"></span> %</p>
+                        <p>Wind Speed: <span id="wind-speed"></span> MPH</p>
+                        <p>UV Index: <span id="uv-index"></span></p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-</main>
-
-    <!-- Include the JavaScript file -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="./assets/js/script.js"></script>
-</body>
-
+                <!-- 5 day forecast -->
+                <div class="p-3">
+                    <h3>5-Day Forecast:</h3>
+                    <!-- all five cards will be added using JS -->
+                    <div class="row" id="five-day-container">
+                        <!-- <div class="col card text-white bg-primary p-3 m-1">
+                            <h4 class="card-title">6/28/2020</h4>
+                            <img src="http://openweathermap.org/img/wn/03d.png" alt="scattered clouds">
+                            <p>Temp: 86.84 °F</p>
+                            <p>Humidity: 43%</p>
+                        </div> -->
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="./assets/js/script.js"></script>
+    </body>
 </html>

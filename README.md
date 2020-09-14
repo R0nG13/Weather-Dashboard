@@ -8,7 +8,8 @@
 
 # Screen Shot
  
- https://github.com/R0nG13/Weather-Dashboard/blob/master/Screen%20Shot%202020-09-13%20at%208.55.02%20PM.png
+ <img src = "./Screen%20Shot%202020-09-13%20at%208.55.02%20PM.png"/>
+
  
  # Website and GitHub URLs
  

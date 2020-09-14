@@ -9,7 +9,7 @@
         <title>Weather Dashboard</title>
     </head>
     <body>
-        <!-- Header content -->
+    
         <header>
             <h1 class="p-3 bg-dark text-white text-center mb-0">Weather Dashboard</h1>
         </header>
@@ -17,7 +17,7 @@
         <main class="row">
             <!-- Card to search for and view previous cities -->
             <section class="col-3 bg-light p-3 pl-4">
-                <!-- City search block -->
+                
                 <form id="city-search" class="form-group">
                     <label for="city" class="font-weight-bold">Search for a City:</label>
                     <div class="form-inline">
@@ -27,21 +27,18 @@
                         </button>
                     </div>
                 </form>
-                <!-- City list -->
+
+
                 <ul class="list-group" id="city-list">
-                    <!-- List items added with JS -->
-                    <!-- <li class="list-group-item text-capitalize">Austin</li> -->
+                    
                 </ul>
             </section>
-            <!-- Weather info section -->
+            
+            
             <section class="col-9">
-                <!-- City preview - h2 and spans will be added using JS-->
                 <div id="city-preview" class="card m-3 p-3">
-                    <h2 class="card-title text-capitalize" id="current-city-header">
-                        <!-- Atlanta 
-                        (6/27/2020) 
-                        <img src="http://openweathermap.org/img/wn/03d.png" alt="scattered clouds"> -->
-                    </h2>
+                    <h2 class="card-title text-capitalize" id="current-city-header"></h2>
+                    
                     <div class="card-body">
                         <p>Temperature: <span id="temperature"></span> °F</p>
                         <p>Humidity: <span id="humidity"></span> %</p>
@@ -52,14 +49,8 @@
                 <!-- 5 day forecast -->
                 <div class="p-3">
                     <h3>5-Day Forecast:</h3>
-                    <!-- all five cards will be added using JS -->
                     <div class="row" id="five-day-container">
-                        <!-- <div class="col card text-white bg-primary p-3 m-1">
-                            <h4 class="card-title">6/28/2020</h4>
-                            <img src="http://openweathermap.org/img/wn/03d.png" alt="scattered clouds">
-                            <p>Temp: 86.84 °F</p>
-                            <p>Humidity: 43%</p>
-                        </div> -->
+                        
                     </div>
                 </div>
             </section>

@@ -13,8 +13,8 @@
  
  # Website and GitHub URLs
  
-* Website: 
+* Website: https://r0ng13.github.io/Weather-Dashboard/
  
-* Github Repo:
+* Github Repo: https://github.com/R0nG13/Weather-Dashboard/
 
 
